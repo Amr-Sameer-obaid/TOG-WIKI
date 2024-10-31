@@ -1,0 +1,72 @@
+---
+import WikiLayout from '../../../layouts/WikiLayout.astro';
+import CharacterCard from '../../../components/CharacterCard.astro';
+
+const characters = [
+  {
+    name: "Twenty-Fifth Bam",
+    slug: "bam",
+    description: "The main protagonist of Tower of God. An Irregular who entered the Tower to chase after Rachel."
+  },
+  {
+    name: "Khun Aguero Agnes",
+    slug: "khun",
+    description: "A member of the Khun Family and one of Bam's closest allies. He is highly intelligent and specializes in strategy and manipulation."
+  },
+  {
+    name: "Rak Wraithraiser",
+    slug: "rak",
+    description: "A proud warrior from the ancient species of giant alligators. Despite his intimidating appearance, he becomes one of Bam's closest friends."
+  },
+  {
+    name: "Rachel",
+    slug: "rachel",
+    description: "The person who taught Bam everything he knew before entering the Tower. Her true motives remain mysterious throughout the story."
+  },
+  {
+    name: "Yuri Jahad",
+    slug: "yuri",
+    description: "A High Ranker and Princess of Jahad who takes an interest in Bam from his first appearance in the Tower."
+  },
+  {
+    name: "Endorsi Jahad",
+    slug: "endorsi",
+    description: "A Princess of Jahad and one of the strongest Regular members of Bam's group."
+  },
+  {
+    name: "Hwaryun",
+    slug: "hwaryun",
+    description: "A Red Witch and Guide who often assists Bam throughout his journey."
+  }
+];
+---
+
+<WikiLayout title="Characters" activeTab="characters">
+  <h2>Main Characters</h2>
+  <div class="character-grid">
+    {characters.slice(0, 3).map(char => (
+      <CharacterCard {...char} />
+    ))}
+  </div>
+
+  <h2>Supporting Characters</h2>
+  <div class="character-grid">
+    {characters.slice(3).map(char => (
+      <CharacterCard {...char} />
+    ))}
+  </div>
+</WikiLayout>
+
+<style>
+  .character-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .character-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

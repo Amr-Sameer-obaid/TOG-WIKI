@@ -1,0 +1,46 @@
+---
+import Layout from './Layout.astro';
+import TabNavigation from '../components/TabNavigation.astro';
+
+const { title, activeTab } = Astro.props;
+---
+
+<Layout title={`${title} - Tower of God Wiki`}>
+  <main class="wiki-container">
+    <h1 class="wiki-title">Tower of God Wiki</h1>
+    <TabNavigation activeTab={activeTab} />
+    <div class="content">
+      <slot />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .wiki-container {
+    margin: auto;
+    padding: 1rem;
+    width: 1200px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .wiki-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 2rem 0;
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .content {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2rem;
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import WikiLayout from '../../layouts/WikiLayout.astro';
+---
+
+<WikiLayout title="Locations" activeTab="locations">
+  <h2>Major Locations in the Tower</h2>
+
+  <div class="location-card">
+    <h3>Outer Tower</h3>
+    <p>The residential area where most of the Tower's inhabitants live. Each floor has its own Outer Tower with unique characteristics and cultures.</p>
+  </div>
+
+  <div class="location-card">
+    <h3>Inner Tower</h3>
+    <p>Where Regulars take tests to climb to higher floors. Each floor presents different challenges and requirements for advancement.</p>
+  </div>
+
+  <div class="location-card">
+    <h3>Middle Area</h3>
+    <p>The area between the Inner and Outer Tower where Rankers typically reside and conduct business.</p>
+  </div>
+
+  <h2>Notable Floors</h2>
+
+  <div class="location-card">
+    <h3>Floor of Test (2F)</h3>
+    <p>The first floor where Regulars are tested. It's managed by Test Director Yu Han Sung.</p>
+  </div>
+
+  <div class="location-card">
+    <h3>Workshop Floor (30F)</h3>
+    <p>A special floor dedicated to the Workshop, where many technological innovations of the Tower are developed.</p>
+  </div>
+
+  <div class="location-card">
+    <h3>Floor of Death (43F)</h3>
+    <p>A mysterious floor where the Guardian is dead, resulting in unique rules and phenomena.</p>
+  </div>
+</WikiLayout>
+
+<style>
+  .location-card {
+    background: rgba(var(--accent-dark), 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    color: rgb(var(--accent-light));
+    margin-top: 0;
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import WikiLayout from '../../layouts/WikiLayout.astro';
+---
+
+<WikiLayout title="Weapons" activeTab="weapons">
+  <h2>Notable Weapons</h2>
+
+  <div class="weapon-card">
+    <h3>Black March</h3>
+    <p>One of the 13 Month Series, created by King Jahad. It takes the form of a needle and contains the spirit of a young woman. It was temporarily lent to Bam by Yuri Jahad.</p>
+  </div>
+
+  <div class="weapon-card">
+    <h3>Green April</h3>
+    <p>Another weapon from the 13 Month Series. It takes the form of a hook-like weapon that can extend and change its size. It is currently wielded by Anak Jahad.</p>
+  </div>
+
+  <h2>Weapon Types</h2>
+  
+  <div class="weapon-category">
+    <h3>Needles</h3>
+    <p>Thin, sword-like weapons that are commonly used in the Tower. They are effective for precise attacks and Shinsu manipulation.</p>
+  </div>
+
+  <div class="weapon-category">
+    <h3>Hooks</h3>
+    <p>Versatile weapons that can be used for both attack and mobility. They are particularly useful for close-range combat and grabbing opponents.</p>
+  </div>
+
+  <div class="weapon-category">
+    <h3>Inventory</h3>
+    <p>A special device that allows users to store and summon weapons and items. The size and capacity depend on the user's rank and privileges.</p>
+  </div>
+</WikiLayout>
+
+<style>
+  .weapon-card, .weapon-category {
+    background: rgba(var(--accent-dark), 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    color: rgb(var(--accent-light));
+    margin-top: 0;
+  }
+</style>

@@ -1,0 +1,299 @@
+---
+import WikiLayout from '../../../layouts/WikiLayout.astro';
+
+const rankings = {
+  highRankers: [
+    { 
+      rank: 1, 
+      name: "Phantaminum", 
+      status: "Inactive", 
+      affiliation: "Unknown",
+      title: "Axis User",
+      specialNotes: "An Axis User who once infiltrated Jahad's palace. His current whereabouts are unknown."
+    },
+    { 
+      rank: 2, 
+      name: "Enryu", 
+      status: "Unknown", 
+      affiliation: "None",
+      title: "Guardian Slayer",
+      specialNotes: "The only person known to have killed a Floor Guardian. Wielder of the Red Thorn."
+    },
+    { 
+      rank: 3, 
+      name: "King Jahad", 
+      status: "Active", 
+      affiliation: "Jahad Empire",
+      title: "King of the Tower",
+      specialNotes: "The first person to climb the Tower and establish the current empire."
+    },
+    { 
+      rank: 4, 
+      name: "Urek Mazino", 
+      status: "Active", 
+      affiliation: "Wolhaiksong",
+      title: "Ray Barracuda",
+      specialNotes: "Cleared the Tower in the shortest time recorded (50 years)."
+    },
+    { 
+      rank: 5, 
+      name: "Arie Hon", 
+      status: "Active", 
+      affiliation: "Arie Family",
+      title: "Greatest Swordsman",
+      specialNotes: "Leader of the Arie Family and master of swordsmanship."
+    },
+    { 
+      rank: 6, 
+      name: "Koon Eduan", 
+      status: "Active", 
+      affiliation: "Koon Family",
+      title: "Spear Bearer",
+      specialNotes: "Leader of the Koon Family and master of spear techniques."
+    },
+    { 
+      rank: 7, 
+      name: "Ha Yurin", 
+      status: "Active", 
+      affiliation: "Ha Family",
+      title: "Founder of Ha Family",
+      specialNotes: "Known for exceptional physical abilities and tension techniques."
+    },
+    { 
+      rank: 8, 
+      name: "Tu Perie Tperie", 
+      status: "Active", 
+      affiliation: "Tu Perie Family",
+      title: "Greatest Light Bearer",
+      specialNotes: "The most skilled Light Bearer in the Tower's history."
+    },
+    { 
+      rank: 9, 
+      name: "Eurasia Blossom", 
+      status: "Active", 
+      affiliation: "Eurasia Family",
+      title: "Wave Controller",
+      specialNotes: "Known for having the most beautiful Shinsu control in the Tower."
+    },
+    { 
+      rank: 10, 
+      name: "Po Bidau Gustang", 
+      status: "Active", 
+      affiliation: "Po Bidau Family",
+      title: "Research King",
+      specialNotes: "The most knowledgeable person about the Tower's secrets."
+    },
+    { 
+      rank: 11, 
+      name: "Yeon Hana", 
+      status: "Active", 
+      affiliation: "Yeon Family",
+      title: "Flame User",
+      specialNotes: "Master of flame manipulation and leader of the Yeon Family."
+    },
+    { 
+      rank: 12, 
+      name: "Ari Han", 
+      status: "Active", 
+      affiliation: "Ari Family",
+      title: "Needle Master",
+      specialNotes: "Known for creating unique needle techniques."
+    }
+  ],
+  advancedRankers: [
+    { 
+      name: "Ha Yuri Jahad", 
+      status: "Active", 
+      affiliation: "Jahad Empire",
+      title: "High Ranker Princess",
+      specialNotes: "Possessor of two 13 Month Series weapons."
+    },
+    { 
+      name: "Evan Edrok", 
+      status: "Active", 
+      affiliation: "Jahad Empire",
+      title: "Top Guide",
+      specialNotes: "One of the most skilled Guides in the Tower."
+    },
+    { 
+      name: "Yu Han Sung", 
+      status: "Active", 
+      affiliation: "FUG",
+      title: "Wave Controller",
+      specialNotes: "Former Test Director of the Second Floor."
+    }
+  ]
+};
+
+const positions = [
+  {
+    name: "Wave Controller",
+    description: "Specialists in manipulating Shinsu to attack enemies and support allies."
+  },
+  {
+    name: "Fisherman",
+    description: "Close-combat specialists who engage enemies directly."
+  },
+  {
+    name: "Spear Bearer",
+    description: "Long-range attackers who specialize in powerful piercing attacks."
+  },
+  {
+    name: "Light Bearer",
+    description: "Tactical support specialists who gather and relay information using lighthouses."
+  },
+  {
+    name: "Scout",
+    description: "Reconnaissance specialists who gather information and perform surprise attacks."
+  }
+];
+---
+
+<WikiLayout title="Ranking System" activeTab="ranking">
+  <section class="ranking-section">
+    <h2>High Rankers (Top 100)</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Affiliation</th>
+            <th>Special Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rankings.highRankers.map(ranker => (
+            <tr>
+              <td>{ranker.rank}</td>
+              <td>{ranker.name}</td>
+              <td>{ranker.title}</td>
+              <td>
+                <span class={`status ${ranker.status.toLowerCase()}`}>
+                  {ranker.status}
+                </span>
+              </td>
+              <td>{ranker.affiliation}</td>
+              <td class="notes">{ranker.specialNotes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="ranking-section">
+    <h2>Advanced Rankers</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Affiliation</th>
+            <th>Special Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rankings.advancedRankers.map(ranker => (
+            <tr>
+              <td>{ranker.name}</td>
+              <td>{ranker.title}</td>
+              <td>
+                <span class={`status ${ranker.status.toLowerCase()}`}>
+                  {ranker.status}
+                </span>
+              </td>
+              <td>{ranker.affiliation}</td>
+              <td class="notes">{ranker.specialNotes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="ranking-section">
+    <h2>Combat Positions</h2>
+    <div class="positions-grid">
+      {positions.map(position => (
+        <div class="position-card">
+          <h3>{position.name}</h3>
+          <p>{position.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</WikiLayout>
+
+<style>
+  .ranking-section {
+    margin-bottom: 3rem;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    background: rgba(var(--accent-dark), 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(var(--accent-light), 0.1);
+  }
+
+  th {
+    color: rgb(var(--accent-light));
+    font-weight: 600;
+  }
+
+  .status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  .status.active {
+    background: rgba(0, 255, 0, 0.2);
+  }
+
+  .status.inactive {
+    background: rgba(255, 0, 0, 0.2);
+  }
+
+  .status.unknown {
+    background: rgba(128, 128, 128, 0.2);
+  }
+
+  .notes {
+    font-size: 0.9rem;
+    max-width: 300px;
+  }
+
+  .positions-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .position-card {
+    background: rgba(var(--accent-dark), 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .position-card h3 {
+    color: rgb(var(--accent-light));
+    margin: 0 0 0.5rem 0;
+  }
+</style>

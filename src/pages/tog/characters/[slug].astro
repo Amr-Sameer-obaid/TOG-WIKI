@@ -1,0 +1,310 @@
+---
+import WikiLayout from '../../../layouts/WikiLayout.astro';
+
+const { slug } = Astro.params;
+
+const characters = {
+  bam: {
+    name: "Twenty-Fifth Bam",
+    title: "The Irregular",
+    rank: "C-Rank Regular",
+    affiliations: ["FUG", "Wolhaiksong"],
+    positions: ["Wave Controller", "Fisherman"],
+    biography: `Twenty-Fifth Bam is the main protagonist of Tower of God. Originally living beneath the Tower with Rachel, 
+    he entered as an Irregular to chase after her. Throughout his journey, he has shown exceptional talent in Shinsu manipulation 
+    and has grown from a naive boy to a powerful wave controller. His unusual talent and rapid growth have drawn the attention 
+    of many powerful figures in the Tower.`,
+    abilities: [
+      {
+        name: "Shinsu Quality: Black March",
+        description: "Bam's personal Shinsu quality takes the form of a black-colored Shinsu."
+      },
+      {
+        name: "Floral Butterfly Piercing Technique",
+        description: "A powerful technique taught by Ha Jinsung that allows for precise and devastating attacks."
+      },
+      {
+        name: "The Power of the Thorn",
+        description: "A powerful weapon fragment that amplifies Bam's already impressive abilities."
+      }
+    ],
+    relationships: [
+      {
+        name: "Rachel",
+        description: "His first friend and the person he chased into the Tower."
+      },
+      {
+        name: "Khun Aguero Agnes",
+        description: "His best friend and closest ally in the Tower."
+      },
+      {
+        name: "Rak Wraithraiser",
+        description: "One of his closest friends who often refers to him as 'Black Turtle'."
+      }
+    ]
+  },
+  khun: {
+    name: "Khun Aguero Agnes",
+    title: "Light Bearer",
+    rank: "C-Rank Regular",
+    affiliations: ["Khun Family"],
+    positions: ["Light Bearer", "Spear Bearer"],
+    biography: `Khun Aguero Agnes is a member of the Khun Family, one of the 10 Great Families. He is highly intelligent 
+    and excels at strategy and manipulation. After meeting Bam, he becomes one of his closest allies and friends. Despite 
+    his cold exterior, he is deeply loyal to his friends and will go to great lengths to protect them.`,
+    abilities: [
+      {
+        name: "Lighthouse Control",
+        description: "Expert manipulation of multiple lighthouses for both combat and information gathering."
+      },
+      {
+        name: "Ice Spear",
+        description: "A powerful technique that creates and controls spears made of ice."
+      }
+    ],
+    relationships: [
+      {
+        name: "Bam",
+        description: "His best friend and the person he chose to follow in the Tower."
+      },
+      {
+        name: "Maria Khun",
+        description: "His half-sister whom he once supported to become a Princess of Jahad."
+      }
+    ]
+  },
+  urek: {
+    name: "Urek Mazino",
+    title: "Ray Barracuda",
+    rank: "4th Ranked High Ranker",
+    affiliations: ["Wolhaiksong"],
+    positions: ["Fisherman"],
+    biography: `One of the most powerful active Rankers in the Tower, Urek Mazino is an Irregular who entered the Tower 
+    chasing Phantaminum. He is the founder of Wolhaiksong and is known for his overwhelming physical strength and speed. 
+    He cleared the Tower in the shortest time known, taking only 50 years.`,
+    abilities: [
+      {
+        name: "Supreme Physical Enhancement",
+        description: "Possesses physical abilities that far surpass normal rankers, even without using shinsu."
+      },
+      {
+        name: "Space Piercing Strike",
+        description: "A technique that allows him to strike targets from a distance by piercing space itself."
+      },
+      {
+        name: "1% of Power",
+        description: "Even using just 1% of his power, he is capable of defeating powerful High Rankers."
+      }
+    ],
+    relationships: [
+      {
+        name: "Baek Ryun",
+        description: "Co-founder of Wolhaiksong and closest friend."
+      },
+      {
+        name: "Garam Jahad",
+        description: "A Princess of Jahad who knows many secrets about the Tower."
+      }
+    ]
+  },
+  endorsi: {
+    name: "Endorsi Jahad",
+    title: "Princess of Jahad",
+    rank: "C-Rank Regular",
+    affiliations: ["Jahad Empire"],
+    positions: ["Fisherman"],
+    biography: `A Princess of Jahad who becomes one of Bam's allies during the Second Floor tests. Despite her status as 
+    a Princess, she often shows independence from the Jahad Empire's rules and develops feelings for Bam. She is known for 
+    her exceptional combat abilities and confident personality.`,
+    abilities: [
+      {
+        name: "Jahad's Power",
+        description: "Enhanced physical abilities and shinsu control granted by Jahad."
+      },
+      {
+        name: "Bong Bong",
+        description: "A special item that allows for high-speed movement and teleportation."
+      }
+    ],
+    relationships: [
+      {
+        name: "Bam",
+        description: "Fellow Regular for whom she develops romantic feelings."
+      },
+      {
+        name: "Anaak Jahad",
+        description: "Fellow Princess of Jahad with a complicated relationship."
+      }
+    ]
+  },
+  yuri: {
+    name: "Ha Yuri Jahad",
+    title: "High Ranker Princess of Jahad",
+    rank: "High Ranker",
+    affiliations: ["Jahad Empire", "Ha Family"],
+    positions: ["Fisherman"],
+    biography: `A High Ranker and Princess of Jahad from the Ha Family. Known for her exceptional combat abilities and 
+    possession of two of the 13 Month Series weapons: Black March and Green April. She takes an interest in Bam from his 
+    first appearance in the Tower and often aids him despite it potentially being against the rules.`,
+    abilities: [
+      {
+        name: "Black March",
+        description: "One of the 13 Month Series weapons, takes the form of a needle."
+      },
+      {
+        name: "Green April",
+        description: "Another of the 13 Month Series weapons, takes the form of a hook weapon."
+      },
+      {
+        name: "Superhuman Physical Abilities",
+        description: "Possesses incredible strength and speed even by High Ranker standards."
+      }
+    ],
+    relationships: [
+      {
+        name: "Evan Edrok",
+        description: "Her Guide and constant companion."
+      },
+      {
+        name: "Bam",
+        description: "An Irregular she supports and believes in."
+      }
+    ]
+  }
+};
+
+const character = characters[slug];
+
+// Handle 404 for unknown characters
+if (!character) {
+  return Astro.redirect('/404');
+}
+---
+
+<WikiLayout title={character.name} activeTab="characters">
+  <div class="character-profile">
+    <header class="profile-header">
+      <h2>{character.name}</h2>
+      <div class="titles">
+        <span class="title">{character.title}</span>
+        <span class="rank">{character.rank}</span>
+      </div>
+    </header>
+
+    <section class="profile-section">
+      <h3>Biography</h3>
+      <p>{character.biography}</p>
+    </section>
+
+    <div class="profile-grid">
+      <section class="profile-section">
+        <h3>Positions</h3>
+        <ul>
+          {character.positions.map(position => (
+            <li>{position}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="profile-section">
+        <h3>Affiliations</h3>
+        <ul>
+          {character.affiliations.map(affiliation => (
+            <li>{affiliation}</li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <section class="profile-section">
+      <h3>Abilities</h3>
+      <div class="abilities-grid">
+        {character.abilities.map(ability => (
+          <div class="ability-card">
+            <h4>{ability.name}</h4>
+            <p>{ability.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <h3>Key Relationships</h3>
+      <div class="relationships-grid">
+        {character.relationships.map(relationship => (
+          <div class="relationship-card">
+            <h4>{relationship.name}</h4>
+            <p>{relationship.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</WikiLayout>
+
+<style>
+  .character-profile {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .profile-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(var(--accent-light), 0.2);
+  }
+
+  .titles {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .title, .rank {
+    background: rgba(var(--accent), 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  .profile-section {
+    margin-bottom: 2rem;
+  }
+
+  .profile-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-bottom: 2rem;
+  }
+
+  .abilities-grid, .relationships-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .ability-card, .relationship-card {
+    background: rgba(var(--accent-dark), 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  h4 {
+    color: rgb(var(--accent-light));
+    margin: 0 0 0.5rem 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    background: rgba(var(--accent-dark), 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+</style>

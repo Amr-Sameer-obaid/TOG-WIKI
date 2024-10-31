@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  description: string;
+}
+
+const { name, slug, description } = Astro.props;
+---
+
+<div class="character-card">
+  <h3>
+    <a href={`/tog/characters/${slug}`} class="character-link">
+      {name}
+      <span class="arrow">→</span>
+    </a>
+  </h3>
+  <p>{description}</p>
+</div>
+
+<style>
+  .character-card {
+    background: rgba(var(--accent-dark), 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s;
+  }
+
+  .character-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .character-link {
+    color: rgb(var(--accent-light));
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .arrow {
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .character-card:hover .arrow {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+</style>

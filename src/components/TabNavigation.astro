@@ -1,0 +1,50 @@
+---
+const { activeTab } = Astro.props;
+
+const tabs = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'characters', label: 'Characters' },
+  { id: 'ranking', label: 'Ranking System' },
+  { id: 'weapons', label: 'Weapons' },
+  { id: 'locations', label: 'Locations' }
+];
+---
+
+<nav class="tab-nav">
+  {tabs.map(tab => (
+    <a 
+      href={`/tog/${tab.id}`} 
+      class={`tab-link ${activeTab === tab.id ? 'active' : ''}`}
+    >
+      {tab.label}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .tab-nav {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #23262d;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .tab-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .tab-link:hover {
+    background-color: rgba(var(--accent), 0.2);
+  }
+
+  .tab-link.active {
+    background-color: rgb(var(--accent));
+    color: white;
+  }
+</style>

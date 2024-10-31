@@ -1,0 +1,64 @@
+---
+import WikiLayout from '../../layouts/WikiLayout.astro';
+---
+
+<WikiLayout title="Ranking System" activeTab="ranking">
+  <h2>Tower Ranking System</h2>
+
+  <div class="rank-section">
+    <h3>Regular Rankings</h3>
+    <ul>
+      <li><strong>E-Rank:</strong> Floors 2-20</li>
+      <li><strong>D-Rank:</strong> Floors 21-30</li>
+      <li><strong>C-Rank:</strong> Floors 31-40</li>
+      <li><strong>B-Rank:</strong> Floors 41-50</li>
+      <li><strong>A-Rank:</strong> Floors 51-60</li>
+    </ul>
+  </div>
+
+  <div class="rank-section">
+    <h3>Ranker Classifications</h3>
+    <ul>
+      <li><strong>Ranker:</strong> Those who have reached the top of the Tower</li>
+      <li><strong>Advanced Ranker:</strong> Top 50% of all Rankers</li>
+      <li><strong>High Ranker:</strong> Top 1% of all Rankers</li>
+      <li><strong>Top 100 High Ranker:</strong> The most powerful beings in the Tower</li>
+    </ul>
+  </div>
+
+  <div class="rank-section">
+    <h3>Special Positions</h3>
+    <ul>
+      <li><strong>Floor Ruler:</strong> Rankers who govern specific floors</li>
+      <li><strong>Test Director:</strong> Rankers who oversee tests on their assigned floors</li>
+      <li><strong>Princess of Jahad:</strong> Selected female Rankers who receive power from King Jahad</li>
+    </ul>
+  </div>
+</WikiLayout>
+
+<style>
+  .rank-section {
+    background: rgba(var(--accent-dark), 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .rank-section h3 {
+    color: rgb(var(--accent-light));
+    margin-top: 0;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  strong {
+    color: rgb(var(--accent-light));
+  }
+</style>
